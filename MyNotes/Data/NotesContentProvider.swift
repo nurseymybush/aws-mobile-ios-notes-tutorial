@@ -14,6 +14,11 @@
 import Foundation
 import CoreData
 import UIKit
+import AWSCore
+import AWSPinpoint
+
+import AWSDynamoDB
+import AWSAuthCore
 
 // The content provider for the internal Note database (Core Data)
 
@@ -62,6 +67,10 @@ public class NotesContentProvider  {
             print("Could not save note. \(error), \(error.userInfo)")
         }
         print("New Note Saved : \(newNoteId)")
+        
+        //Send AddNote analytics event
+        sendNoteEvent(noteId: newNoteId, eventType: noteEventType.AddNote.rawValue)
+
         return newNoteId
     }
     
@@ -109,9 +118,140 @@ public class NotesContentProvider  {
         do {
             try context.save()
             print("Deleted local NoteId: \(noteId)")
+            // Send DeletNote analytics event
+            sendNoteEvent(noteId: noteId, eventType: noteEventType.DeleteNote.rawValue)
         } catch {
             let nserror = error as NSError
             fatalError("Unresolved local delete error \(nserror), \(nserror.userInfo)")
+        }
+    }
+    
+    // Send analytics AddNote and DeleteNote events
+    func sendNoteEvent(noteId: String, eventType: String)
+    {
+        
+        let pinpointClient = AWSPinpoint(configuration:
+            AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: nil))
+        
+        let pinpointAnalyticsClient = pinpointClient.analyticsClient
+        
+        let event = pinpointAnalyticsClient.createEvent(withEventType: eventType)
+        event.addAttribute("NoteId", forKey: noteId)
+        pinpointAnalyticsClient.record(event)
+        pinpointAnalyticsClient.submitEvents()
+    }
+    
+    enum noteEventType: String {
+        case AddNote = "AddNote"
+        case DeleteNote = "DeleteNote"
+    }
+    
+    //Insert a note using Amazon DynamoDB
+    func insertNoteDDB(noteId: String, noteTitle: String, noteContent: String) -> String {
+        
+        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+        
+        // Create a Note object using data model you downloaded from Mobile Hub
+        let noteItem: Notes = Notes()
+        
+        noteItem._userId = AWSIdentityManager.default().identityId
+        noteItem._noteId = noteId
+        noteItem._title = emptyTitle
+        noteItem._content = emptyContent
+        noteItem._creationDate = NSDate().timeIntervalSince1970 as NSNumber
+        
+        //Save a new item
+        dynamoDbObjectMapper.save(noteItem, completionHandler: {
+            (error: Error?) -> Void in
+            
+            if let error = error {
+                print("Amazon DynamoDB Save Error on new note: \(error)")
+                return
+            }
+            print("New note was saved to DDB.")
+        })
+        
+        return noteItem._noteId!
+    }
+    
+    //Insert a note using Amazon DynamoDB
+    func updateNoteDDB(noteId: String, noteTitle: String, noteContent: String)  {
+        
+        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+        
+        let noteItem: Notes = Notes()
+        
+        noteItem._userId = AWSIdentityManager.default().identityId
+        noteItem._noteId = noteId
+        
+        if (!noteTitle.isEmpty){
+            noteItem._title = noteTitle
+        } else {
+            noteItem._title = emptyTitle
+        }
+        
+        if (!noteContent.isEmpty){
+            noteItem._content = noteContent
+        } else {
+            noteItem._content = emptyContent
+        }
+        
+        noteItem._updatedDate = NSDate().timeIntervalSince1970 as NSNumber
+        let updateMapperConfig = AWSDynamoDBObjectMapperConfiguration()
+        updateMapperConfig.saveBehavior = .updateSkipNullAttributes //ignore any null value attributes and does not remove in database
+        dynamoDbObjectMapper.save(noteItem, configuration: updateMapperConfig, completionHandler: {(error: Error?) -> Void in
+            if let error = error {
+                print(" Amazon DynamoDB Save Error on note update: \(error)")
+                return
+            }
+            print("Existing note updated in DDB.")
+        })
+    }
+    
+    //Delete a note using Amazon DynamoDB
+    func deleteNoteDDB(noteId: String) {
+        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+        
+        let itemToDelete = Notes()
+        itemToDelete?._userId = AWSIdentityManager.default().identityId
+        itemToDelete?._noteId = noteId
+        
+        dynamoDbObjectMapper.remove(itemToDelete!, completionHandler: {(error: Error?) -> Void in
+            if let error = error {
+                print(" Amazon DynamoDB Save Error: \(error)")
+                return
+            }
+            print("An note was deleted in DDB.")
+        })
+    }
+    
+    func getNotesFromDDB() {
+        // 1) Configure the query looking for all the notes created by this user (userId => Cognito identityId)
+        let queryExpression = AWSDynamoDBQueryExpression()
+        
+        queryExpression.keyConditionExpression = "#userId = :userId"
+        
+        queryExpression.expressionAttributeNames = [
+            "#userId": "userId",
+        ]
+        queryExpression.expressionAttributeValues = [
+            ":userId": AWSIdentityManager.default().identityId
+        ]
+        
+        // 2) Make the query
+        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+        
+        dynamoDbObjectMapper.query(Notes.self, expression: queryExpression) { (output: AWSDynamoDBPaginatedOutput?, error: Error?) in
+            if error != nil {
+                print("DynamoDB query request failed. Error: \(String(describing: error))")
+            }
+            if output != nil {
+                print("Found [\(output!.items.count)] notes")
+                for notes in output!.items {
+                    let noteItem = notes as? Notes
+                    print("\nNoteId: \(noteItem!._noteId!)\nTitle: \(noteItem!._title!)\nContent: \(noteItem!._content!)")
+                }
+            }
         }
     }
 }

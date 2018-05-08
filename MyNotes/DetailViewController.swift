@@ -91,6 +91,7 @@ class DetailViewController: UIViewController {
         if (DetailViewController.noteId == nil) // Insert
         {
             let id = noteContentProvider?.insert(noteTitle: "", noteContent: "")
+            noteContentProvider?.insertNoteDDB(noteId: id!, noteTitle: "", noteContent: "")
             DetailViewController.noteId = id
         }
         else // Update
@@ -99,6 +100,7 @@ class DetailViewController: UIViewController {
             let noteTitle = self.noteTitle.text
             let noteContent = self.noteContent.text
             noteContentProvider?.update(noteId: noteId!, noteTitle: noteTitle!, noteContent: noteContent!)
+            noteContentProvider?.updateNoteDDB(noteId: noteId!, noteTitle: noteTitle!, noteContent: noteContent!)
         }
     }
     

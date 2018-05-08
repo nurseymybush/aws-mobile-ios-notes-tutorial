@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		847DEC7420A1809A00327F38 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 847DEC7220A1809A00327F38 /* awsconfiguration.json */; };
+		847DEC7520A1809A00327F38 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DEC7320A1809A00327F38 /* Notes.swift */; };
+		9A12154D4F3375AAB7F93593 /* Pods_MyNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7980EA5825E9A6BD2969E7 /* Pods_MyNotes.framework */; };
 		F04BD3381F06EDD600303C0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04BD3371F06EDD600303C0E /* AppDelegate.swift */; };
 		F04BD33D1F06EDD600303C0E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04BD33C1F06EDD600303C0E /* MasterViewController.swift */; };
 		F04BD33F1F06EDD600303C0E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04BD33E1F06EDD600303C0E /* DetailViewController.swift */; };
@@ -18,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44656DCA0F36E3DAEC151910 /* Pods-MyNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyNotes/Pods-MyNotes.release.xcconfig"; sourceTree = "<group>"; };
+		847DEC7220A1809A00327F38 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		847DEC7320A1809A00327F38 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		8B7980EA5825E9A6BD2969E7 /* Pods_MyNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04BD3341F06EDD600303C0E /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04BD3371F06EDD600303C0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F04BD33C1F06EDD600303C0E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +35,7 @@
 		F04BD3481F06EDD600303C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F08C4421201BC23E00153B38 /* Note.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Note.xcdatamodel; sourceTree = "<group>"; };
 		F0A465071F9E96EA00D609F5 /* NotesContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesContentProvider.swift; sourceTree = "<group>"; };
+		F980E5BB9606F48047B0507D /* Pods-MyNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyNotes/Pods-MyNotes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A12154D4F3375AAB7F93593 /* Pods_MyNotes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE43C38045C6D9E5C805D041 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B7980EA5825E9A6BD2969E7 /* Pods_MyNotes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F04BD32B1F06EDD600303C0E = {
 			isa = PBXGroup;
 			children = (
 				F04BD3361F06EDD600303C0E /* MyNotes */,
 				F04BD3351F06EDD600303C0E /* Products */,
+				FFB3665BF4BEE7AB7E5B78CF /* Pods */,
+				EE43C38045C6D9E5C805D041 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +86,8 @@
 				F04BD3401F06EDD600303C0E /* Main.storyboard */,
 				F04BD3451F06EDD600303C0E /* LaunchScreen.storyboard */,
 				F04BD3431F06EDD600303C0E /* Assets.xcassets */,
+				847DEC7220A1809A00327F38 /* awsconfiguration.json */,
+				847DEC7320A1809A00327F38 /* Notes.swift */,
 				F04BD3481F06EDD600303C0E /* Info.plist */,
 				F08C4420201BC23E00153B38 /* Note.xcdatamodeld */,
 			);
@@ -81,6 +102,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		FFB3665BF4BEE7AB7E5B78CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F980E5BB9606F48047B0507D /* Pods-MyNotes.debug.xcconfig */,
+				44656DCA0F36E3DAEC151910 /* Pods-MyNotes.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,9 +118,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F04BD34B1F06EDD600303C0E /* Build configuration list for PBXNativeTarget "MyNotes" */;
 			buildPhases = (
+				261D03611C8EF3EEEB35DE2D /* [CP] Check Pods Manifest.lock */,
 				F04BD3301F06EDD600303C0E /* Sources */,
 				F04BD3311F06EDD600303C0E /* Frameworks */,
 				F04BD3321F06EDD600303C0E /* Resources */,
+				A32B01457FD8E94EBE830CCE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847DEC7420A1809A00327F38 /* awsconfiguration.json in Resources */,
 				F04BD3471F06EDD600303C0E /* LaunchScreen.storyboard in Resources */,
 				F04BD3441F06EDD600303C0E /* Assets.xcassets in Resources */,
 				F04BD3421F06EDD600303C0E /* Main.storyboard in Resources */,
@@ -148,6 +181,61 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		261D03611C8EF3EEEB35DE2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyNotes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A32B01457FD8E94EBE830CCE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyNotes/Pods-MyNotes-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthUI/AWSAuthUI.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSPinpoint/AWSPinpoint.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSUserPoolsSignIn/AWSUserPoolsSignIn.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthUI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPinpoint.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSUserPoolsSignIn.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyNotes/Pods-MyNotes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F04BD3301F06EDD600303C0E /* Sources */ = {
@@ -159,6 +247,7 @@
 				F04BD3381F06EDD600303C0E /* AppDelegate.swift in Sources */,
 				F04BD33D1F06EDD600303C0E /* MasterViewController.swift in Sources */,
 				F04BD33F1F06EDD600303C0E /* DetailViewController.swift in Sources */,
+				847DEC7520A1809A00327F38 /* Notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +382,7 @@
 		};
 		F04BD34C1F06EDD600303C0E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F980E5BB9606F48047B0507D /* Pods-MyNotes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -311,6 +401,7 @@
 		};
 		F04BD34D1F06EDD600303C0E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44656DCA0F36E3DAEC151910 /* Pods-MyNotes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -12,12 +12,31 @@
  */
 import UIKit
 import CoreData
+// Analytics imports
+import AWSCore
+import AWSPinpoint
+// Auth imports
+import AWSMobileClient
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    // Add the pinpoint variable
+    var pinpoint: AWSPinpoint?
 
+    //Instantiate the AWSMobileClient
+    func application(_ application: UIApplication, open url: URL,
+                     sourceApplication: String?, annotation: Any) -> Bool {
+        
+        return AWSMobileClient.sharedInstance().interceptApplication(
+            application, open: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+        
+    }
+
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
@@ -31,7 +50,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let controller = masterNavigationController.topViewController as! MasterViewController
         controller.managedObjectContext = self.persistentContainer.viewContext
         
-        return true
+        // Initialize AWSMobileClient
+        let didFinishLaunching = AWSMobileClient.sharedInstance().interceptApplication(
+            application, didFinishLaunchingWithOptions:
+            launchOptions)
+        
+        // Initialize Pinpoint to enable session analytics
+        let pinpoint = AWSPinpoint(configuration:
+            AWSPinpointConfiguration.defaultPinpointConfiguration(
+                launchOptions: launchOptions))
+        
+        return didFinishLaunching
     }
 
     // MARK: - Split view

@@ -13,6 +13,10 @@
 import UIKit
 import CoreData
 import Foundation
+import AWSCore
+import AWSPinpoint
+import AWSAuthCore
+import AWSAuthUI
 
 /*
  * MasterViewController displays all the stored notes and allows a
@@ -33,6 +37,20 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Instantiate sign-in UI from the SDK library
+        if !AWSSignInManager.sharedInstance().isLoggedIn {
+            AWSAuthUIViewController
+                .presentViewController(with: self.navigationController!,
+                                       configuration: nil,
+                                       completionHandler: { (provider: AWSSignInProvider, error: Error?) in
+                                        if error != nil {
+                                            print("Error occurred: \(String(describing: error))")
+                                        } else {
+                                            // Sign in successful.
+                                        }
+                })
+        }
+        
         managedObjectContext?.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         //Initialize Note contentProvider
@@ -47,6 +65,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             _detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        _noteContentProvider?.getNotesFromDDB()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -115,6 +135,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             
             //Delete Note Locally
             _noteContentProvider?.delete(managedObjectContext: context, managedObj: noteObj, noteId: noteId)
+            //Delete Note in DynamoDB
+            _noteContentProvider?.deleteNoteDDB(noteId: noteId!)
         }
     }
 
