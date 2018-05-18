@@ -27,6 +27,29 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var _detailViewController: DetailViewController? = nil
     var _noteContentProvider: NotesContentProvider? = nil
     
+    @IBAction func ManualSave(_ sender: Any) {
+        AWSLogout()
+    }
+
+    func AWSLogout(){
+        print("AWSLogout")
+        AWSSignInManager.sharedInstance().logout(completionHandler: {(result: Any?, error: Error?) in
+            self.showSignIn()
+            // print("Sign-out Successful: \(signInProvider.getDisplayName)");
+            
+        })
+    }
+    func showSignIn() {
+        AWSAuthUIViewController.presentViewController(with: self.navigationController!, configuration: nil, completionHandler: {
+            (provider: AWSSignInProvider, error: Error?) in
+            if error != nil {
+                print("Error occurred: \(String(describing: error))")
+            } else {
+                print("Sign-in successful.")
+                
+            }
+        })
+    }
     // NSFetchedResultsController as an instance variable of table view controller
     // to manage the results of a Core Data fetch request and display data to the user.
     var _fetchedResultsController: NSFetchedResultsController<Note>? = nil

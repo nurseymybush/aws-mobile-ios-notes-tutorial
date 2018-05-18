@@ -27,6 +27,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var noteTitle: UITextField!
     
+    @IBOutlet weak var btnSave: UIBarButtonItem!
     // Assign all the textfields to this action for keyboard collapse
     @IBAction func resignKeyboardTextField(sender: UITextField) {
         sender.resignFirstResponder()
@@ -39,14 +40,21 @@ class DetailViewController: UIViewController {
     
     var notes: [NSManagedObject] = []
 
+    @IBAction func ManualSave(_ sender: Any) {
+        autoSave()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .save, target: self, action: "barButtonItemClicked:", animated: true),//,
 
+        
         // Initialize Notes contentProvider
+            //animated: noteContentProvider = NotesContentProvider()
         noteContentProvider = NotesContentProvider()
         
         // Start the auto-save timer to call autoSave() every 2 seconds
-        autoSaveTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(autoSave), userInfo: nil, repeats: true)
+        //autoSaveTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(autoSave), userInfo: nil, repeats: true)
         
         // Prepare textfields with rounded corners
         noteTitle.layer.borderWidth = 0.5
@@ -60,6 +68,11 @@ class DetailViewController: UIViewController {
        
         // Do any additional setup after loading the view
         configureView()
+    }
+    
+    func barButtonItemClicked()
+    {
+        print("Bar button clicked")
     }
     
     var myNote: Note? {

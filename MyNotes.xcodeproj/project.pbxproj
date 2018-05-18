@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		847DEC7420A1809A00327F38 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 847DEC7220A1809A00327F38 /* awsconfiguration.json */; };
 		847DEC7520A1809A00327F38 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DEC7320A1809A00327F38 /* Notes.swift */; };
+		847DEC7720AC0AD600327F38 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 847DEC7620AC0AD500327F38 /* awsconfiguration.json */; };
 		9A12154D4F3375AAB7F93593 /* Pods_MyNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7980EA5825E9A6BD2969E7 /* Pods_MyNotes.framework */; };
 		F04BD3381F06EDD600303C0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04BD3371F06EDD600303C0E /* AppDelegate.swift */; };
 		F04BD33D1F06EDD600303C0E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04BD33C1F06EDD600303C0E /* MasterViewController.swift */; };
@@ -22,8 +22,8 @@
 
 /* Begin PBXFileReference section */
 		44656DCA0F36E3DAEC151910 /* Pods-MyNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyNotes/Pods-MyNotes.release.xcconfig"; sourceTree = "<group>"; };
-		847DEC7220A1809A00327F38 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		847DEC7320A1809A00327F38 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		847DEC7620AC0AD500327F38 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		8B7980EA5825E9A6BD2969E7 /* Pods_MyNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04BD3341F06EDD600303C0E /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04BD3371F06EDD600303C0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 				F04BD3401F06EDD600303C0E /* Main.storyboard */,
 				F04BD3451F06EDD600303C0E /* LaunchScreen.storyboard */,
 				F04BD3431F06EDD600303C0E /* Assets.xcassets */,
-				847DEC7220A1809A00327F38 /* awsconfiguration.json */,
+				847DEC7620AC0AD500327F38 /* awsconfiguration.json */,
 				847DEC7320A1809A00327F38 /* Notes.swift */,
 				F04BD3481F06EDD600303C0E /* Info.plist */,
 				F08C4420201BC23E00153B38 /* Note.xcdatamodeld */,
@@ -173,7 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				847DEC7420A1809A00327F38 /* awsconfiguration.json in Resources */,
+				847DEC7720AC0AD600327F38 /* awsconfiguration.json in Resources */,
 				F04BD3471F06EDD600303C0E /* LaunchScreen.storyboard in Resources */,
 				F04BD3441F06EDD600303C0E /* Assets.xcassets in Resources */,
 				F04BD3421F06EDD600303C0E /* Main.storyboard in Resources */,
@@ -214,9 +214,13 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSFacebookSignIn/AWSFacebookSignIn.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSPinpoint/AWSPinpoint.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSUserPoolsSignIn/AWSUserPoolsSignIn.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -226,9 +230,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSFacebookSignIn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPinpoint.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSUserPoolsSignIn.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

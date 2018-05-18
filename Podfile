@@ -15,4 +15,11 @@ target 'MyNotes' do
    
    # NoSQL Data dependencies
    pod 'AWSDynamoDB', '~> 2.6.5'
+   
+   #facebook
+   #pod 'FBSDKCoreKit', '~> 4.33.0'
+   #pod 'FBSDKLoginKit', '~> 4.33.0'
+   #pod 'FBSDKShareKit', '~> 4.33.0'
+   pod 'AWSFacebookSignIn', '~> 2.6.5'
+
 end
