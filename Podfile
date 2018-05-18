@@ -22,4 +22,8 @@ target 'MyNotes' do
    #pod 'FBSDKShareKit', '~> 4.33.0'
    pod 'AWSFacebookSignIn', '~> 2.6.5'
 
+   #google
+   pod 'AWSGoogleSignIn', '~> 2.6.5'
+   pod 'GoogleSignIn', '~> 4.0'
+
 end

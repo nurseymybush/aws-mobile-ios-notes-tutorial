@@ -70,11 +70,6 @@ class DetailViewController: UIViewController {
         configureView()
     }
     
-    func barButtonItemClicked()
-    {
-        print("Bar button clicked")
-    }
-    
     var myNote: Note? {
         
         didSet {

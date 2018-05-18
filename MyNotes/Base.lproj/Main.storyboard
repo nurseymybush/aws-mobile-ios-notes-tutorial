@@ -158,7 +158,7 @@
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="lh3-ep-XDX">
                             <connections>
-                                <action selector="ManualSave:" destination="7bK-jq-Zjz" id="cCn-6Q-RGa"/>
+                                <action selector="Logout:" destination="7bK-jq-Zjz" id="kMh-AB-a0g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

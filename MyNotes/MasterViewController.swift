@@ -17,6 +17,10 @@ import AWSCore
 import AWSPinpoint
 import AWSAuthCore
 import AWSAuthUI
+import AWSMobileClient
+import AWSUserPoolsSignIn
+import AWSFacebookSignIn
+import AWSGoogleSignIn
 
 /*
  * MasterViewController displays all the stored notes and allows a
@@ -27,7 +31,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var _detailViewController: DetailViewController? = nil
     var _noteContentProvider: NotesContentProvider? = nil
     
-    @IBAction func ManualSave(_ sender: Any) {
+    @IBAction func Logout(_ sender: Any) {
         AWSLogout()
     }
 
@@ -40,7 +44,21 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         })
     }
     func showSignIn() {
-        AWSAuthUIViewController.presentViewController(with: self.navigationController!, configuration: nil, completionHandler: {
+        let config = AWSAuthUIConfiguration()
+        config.enableUserPoolsUI = true
+        config.addSignInButtonView(class: AWSGoogleSignInButton.self)
+        config.addSignInButtonView(class: AWSFacebookSignInButton.self)
+        //config.backgroundColor = UIColor.blue
+        config.font = UIFont (name: "Helvetica Neue", size: 14)
+        config.isBackgroundColorFullScreen = false
+        config.canCancel = false
+        config.logoImage = UIImage(named:"sklogo")
+        
+        AWSAuthUIViewController.presentViewController(
+            with: self.navigationController!,
+            //configuration: nil,
+            configuration:config,
+            completionHandler: {
             (provider: AWSSignInProvider, error: Error?) in
             if error != nil {
                 print("Error occurred: \(String(describing: error))")
@@ -62,7 +80,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Instantiate sign-in UI from the SDK library
         if !AWSSignInManager.sharedInstance().isLoggedIn {
-            AWSAuthUIViewController
+            /*AWSAuthUIViewController
                 .presentViewController(with: self.navigationController!,
                                        configuration: nil,
                                        completionHandler: { (provider: AWSSignInProvider, error: Error?) in
@@ -71,7 +89,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                                         } else {
                                             // Sign in successful.
                                         }
-                })
+                })*/
+            showSignIn()
         }
         
         managedObjectContext?.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843AF9B520AF4EFF00A16C77 /* client_541154332886-4l6u1debg3n7s5644r9fj9ivkcv0n65d.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = 843AF9B420AF4EFF00A16C77 /* client_541154332886-4l6u1debg3n7s5644r9fj9ivkcv0n65d.apps.googleusercontent.com.plist */; };
+		843AF9B720AF53EE00A16C77 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 843AF9B620AF53EE00A16C77 /* awsconfiguration.json */; };
 		847DEC7520A1809A00327F38 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DEC7320A1809A00327F38 /* Notes.swift */; };
-		847DEC7720AC0AD600327F38 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 847DEC7620AC0AD500327F38 /* awsconfiguration.json */; };
 		9A12154D4F3375AAB7F93593 /* Pods_MyNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7980EA5825E9A6BD2969E7 /* Pods_MyNotes.framework */; };
 		F04BD3381F06EDD600303C0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04BD3371F06EDD600303C0E /* AppDelegate.swift */; };
 		F04BD33D1F06EDD600303C0E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04BD33C1F06EDD600303C0E /* MasterViewController.swift */; };
@@ -22,8 +23,9 @@
 
 /* Begin PBXFileReference section */
 		44656DCA0F36E3DAEC151910 /* Pods-MyNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyNotes/Pods-MyNotes.release.xcconfig"; sourceTree = "<group>"; };
+		843AF9B420AF4EFF00A16C77 /* client_541154332886-4l6u1debg3n7s5644r9fj9ivkcv0n65d.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_541154332886-4l6u1debg3n7s5644r9fj9ivkcv0n65d.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
+		843AF9B620AF53EE00A16C77 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		847DEC7320A1809A00327F38 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
-		847DEC7620AC0AD500327F38 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		8B7980EA5825E9A6BD2969E7 /* Pods_MyNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04BD3341F06EDD600303C0E /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04BD3371F06EDD600303C0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +88,8 @@
 				F04BD3401F06EDD600303C0E /* Main.storyboard */,
 				F04BD3451F06EDD600303C0E /* LaunchScreen.storyboard */,
 				F04BD3431F06EDD600303C0E /* Assets.xcassets */,
-				847DEC7620AC0AD500327F38 /* awsconfiguration.json */,
+				843AF9B620AF53EE00A16C77 /* awsconfiguration.json */,
+				843AF9B420AF4EFF00A16C77 /* client_541154332886-4l6u1debg3n7s5644r9fj9ivkcv0n65d.apps.googleusercontent.com.plist */,
 				847DEC7320A1809A00327F38 /* Notes.swift */,
 				F04BD3481F06EDD600303C0E /* Info.plist */,
 				F08C4420201BC23E00153B38 /* Note.xcdatamodeld */,
@@ -123,6 +126,7 @@
 				F04BD3311F06EDD600303C0E /* Frameworks */,
 				F04BD3321F06EDD600303C0E /* Resources */,
 				A32B01457FD8E94EBE830CCE /* [CP] Embed Pods Frameworks */,
+				5F086A810A8203362F928B3C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,7 +177,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				847DEC7720AC0AD600327F38 /* awsconfiguration.json in Resources */,
+				843AF9B720AF53EE00A16C77 /* awsconfiguration.json in Resources */,
+				843AF9B520AF4EFF00A16C77 /* client_541154332886-4l6u1debg3n7s5644r9fj9ivkcv0n65d.apps.googleusercontent.com.plist in Resources */,
 				F04BD3471F06EDD600303C0E /* LaunchScreen.storyboard in Resources */,
 				F04BD3441F06EDD600303C0E /* Assets.xcassets in Resources */,
 				F04BD3421F06EDD600303C0E /* Main.storyboard in Resources */,
@@ -201,6 +206,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5F086A810A8203362F928B3C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyNotes/Pods-MyNotes-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyNotes/Pods-MyNotes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A32B01457FD8E94EBE830CCE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,12 +238,16 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSFacebookSignIn/AWSFacebookSignIn.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSGoogleSignIn/AWSGoogleSignIn.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSPinpoint/AWSPinpoint.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSUserPoolsSignIn/AWSUserPoolsSignIn.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -231,12 +258,16 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSFacebookSignIn.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSGoogleSignIn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPinpoint.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSUserPoolsSignIn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

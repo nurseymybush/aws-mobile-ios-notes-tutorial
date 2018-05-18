@@ -17,8 +17,6 @@ import AWSCore
 import AWSPinpoint
 // Auth imports
 import AWSMobileClient
-import FBSDKCoreKit
-import FBSDKLoginKit
 
 
 @UIApplicationMain
